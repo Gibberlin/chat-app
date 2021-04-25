@@ -14,6 +14,7 @@ function App() {
     <Switch>
       <PublicRoute path="/signin"><Signin /></PublicRoute>
       <PrivateRoute path="/"><Home /></PrivateRoute>
+      console.log('you are now in app.js');
     </Switch>
     </ProfileProvider>
   );
