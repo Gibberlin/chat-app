@@ -11,25 +11,25 @@ const Signin = () => {
 
        const {additionalUserInfo, user}= await auth.signInWithPopup(provider);
        if(additionalUserInfo.isNewUser){
-           await database.ref(`./profiles/${user.uid}`).set({
+           await database.ref(`/profiles/${user.uid}`).set({
             name: user.displayName,
-            createdAt: firebase.database.ServerValue.TIMESTAMP
-           })
+            createdAt: firebase.database.ServerValue.TIMESTAMP,
+           });
            
        }
        
        Alert.success('Signed In', 4000);
         }
         catch (err) {
-            Alert.info(err.message, 4000)
+            Alert.info(err.message, 4000);
         }
-    }
+    };
 
 
 
     const onFacebookSignIn = () =>
     {
-        signInWithProvider( new firebase.auth.FacebookAuthProvider() );
+        signInWithProvider( new firebase.auth.FacebookAuthProvider());
     };
     const onGoogleSignIn = () =>
     {
@@ -63,7 +63,7 @@ const Signin = () => {
                </Row>
            </Grid>
        </Container>
-    )
-}
+    );
+};
 
 export default Signin
